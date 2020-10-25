@@ -1,5 +1,6 @@
 import { TradfriClient } from "node-tradfri-client";
 import { getDimmerAndColorTemperature } from "./getDimmerAndColorTemperature";
+import * as OPTIONS from "./options.json";
 
 const formatTime = (d: Date) => {
   const withLeadingZero = (n) => (n < 10 ? `0${n}` : `${n}`);
@@ -17,6 +18,12 @@ const setDimmersAndTemperatures = async (
       now.getTime()
     );
     for (const device of Object.values(client.devices)) {
+      if (
+        (OPTIONS.include.length && !OPTIONS.include.includes(device.name)) ||
+        (OPTIONS.exclude.length && OPTIONS.exclude.includes(device.name))
+      ) {
+        continue;
+      }
       if (device.lightList) {
         client.operateLight(
           device,

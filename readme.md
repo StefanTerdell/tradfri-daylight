@@ -11,18 +11,20 @@ Tradfri-Daylight is a node.js typescript application that controls all the dimma
 
 ## Options
 
-| key                 | scalar  | explanation                                                       |
-| ------------------- | ------- | ----------------------------------------------------------------- |
-| dimmerMax           | percent | The maximum brightness to dim to.                                 |
-| dimmerMin           | percent | The minimum brightness to dim to.                                 |
-| fadeInAt            | hour    | Hour of the day to start fading in.                               |
-| fullyLitAt          | hour    | Hour of the day where brightness reaches maximum.                 |
-| fadeOutAt           | hour    | Hour of the day to start fading out brightness.                   |
-| fullyDimmedAt       | hour    | Hour of the day where brightness reaches minimum.                 |
-| temperatureMin      | percent | The coldest light temperature (typically midday).                 |
-| temperatureMax      | percent | The warmest light temperature (early mornings and late evenings). |
-| temperatureMaxBySun | percent | The warmest light temperature that is allowed to be set by twilight approaching. Setting this to something lower than `temperatureMax` creates a sort of shelf in the evening, where light doesnt get warmer even though the sun may have set - until the brightness dimmer brings it up in reverse to itself. |
-| morningHours        | hour    | The fade in duration of cold light after sunrise.                 |
-| twilightHours       | hour    | The fade in duration of warm light after sunset.                  |
+| key                 | scalar   | explanation                                                                |
+| ------------------- | -------- | -------------------------------------------------------------------------- |
+| dimmerMax           | percent  | The maximum brightness to dim to.                                          |
+| dimmerMin           | percent  | The minimum brightness to dim to.                                          |
+| fadeInAt            | hour     | Hour of the day to start fading in.                                        |
+| fullyLitAt          | hour     | Hour of the day where brightness reaches maximum.                          |
+| fadeOutAt           | hour     | Hour of the day to start fading out brightness.                            |
+| fullyDimmedAt       | hour     | Hour of the day where brightness reaches minimum.                          |
+| temperatureMin      | percent  | The coldest light temperature (typically midday).                          |
+| temperatureMax      | percent  | The warmest light temperature (early mornings and late evenings).          |
+| temperatureMaxBySun | percent  | The warmest light temperature that is allowed to be set by twilight approaching. Setting this to something lower than `temperatureMax` creates a sort of shelf in the evening, where light doesnt get warmer even though the sun may have set - until the brightness dimmer brings it up in reverse to itself. |
+| morningHours        | hour     | The fade in duration of cold light after sunrise.                          |
+| twilightHours       | hour     | The fade in duration of warm light after sunset.                           |
+| include             | string[] | If not empty, only devices whose names are in this list will be controlled |
+| exclude             | string[] | Devices whose names are in this list will never be controlled              |
 
 

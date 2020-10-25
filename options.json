@@ -9,5 +9,7 @@
   "temperatureMax": 100,
   "temperatureMaxBySun": 50,
   "morningHours": 1.5,
-  "twilightHours": 2
+  "twilightHours": 2,
+  "include": ["TRADFRI panel", "Soffa", "Middagsbord"],
+  "exclude": ["Soffa"]
 }
