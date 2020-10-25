@@ -1,15 +1,15 @@
 {
-  "dimmerMax": 100,
+  "dimmerMax": 70,
   "dimmerMin": 0,
   "fadeInAt": 6,
   "fullyLitAt": 7,
   "fadeOutAt": 21,
   "fullyDimmedAt": 23,
-  "temperatureMin": 20,
+  "temperatureMin": 0,
   "temperatureMax": 100,
   "temperatureMaxBySun": 50,
   "morningHours": 1.5,
-  "twilightHours": 2,
+  "twilightHours": 1,
   "include": [],
   "exclude": []
 }

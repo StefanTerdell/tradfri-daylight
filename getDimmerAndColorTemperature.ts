@@ -30,16 +30,16 @@ const temperatureBySun = (epoc: number): number => {
   const sunset = getSunset(56.6350434, 16.5602567).getTime();
 
   const morning = sunrise + OPTIONS.morningHours * 3600000;
-  const twilight = sunset + OPTIONS.twilightHours * 3600000;
+  const twilight = sunset - OPTIONS.twilightHours * 3600000;
   const i =
     (epoc < sunrise
       ? 1
       : epoc < morning
       ? 1 - inverseLinearInterpolation(sunrise, morning, epoc)
-      : epoc < sunset
-      ? 0
       : epoc < twilight
-      ? inverseLinearInterpolation(sunset, twilight, epoc)
+      ? 0
+      : epoc < sunset
+      ? inverseLinearInterpolation(twilight, sunset, epoc)
       : 1) * 100;
 
   return Math.round(range(0, OPTIONS.temperatureMaxBySun, i));
