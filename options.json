@@ -1,15 +1,30 @@
 {
-  "dimmerMax": 70,
-  "dimmerMin": 0,
-  "fadeInAt": 6,
-  "fullyLitAt": 7,
-  "fadeOutAt": 21,
-  "fullyDimmedAt": 23,
-  "temperatureMin": 0,
-  "temperatureMax": 100,
-  "temperatureMaxBySun": 50,
-  "morningHours": 1.5,
-  "twilightHours": 1,
-  "include": [],
-  "exclude": []
+  "wakeUp": {
+    "startClockHour": 6,
+    "completeClockHour": 7,
+    "colorTemperatureTarget": 40,
+    "dimmerTarget": 80
+  },
+  "sunrise": {
+    "relativeStartTime": -0.5,
+    "relativeCompleteTime": 1,
+    "colorTemperatureTarget": 0,
+    "dimmerTarget": 20
+  },
+  "sunset": {
+    "relativeStartTime": -0.5,
+    "relativeCompleteTime": 1,
+    "colorTemperatureTarget": 60,
+    "dimmerTarget": 60
+  },
+  "sleep": {
+    "startClockHour": 21,
+    "completeClockHour": 23,
+    "colorTemperatureTarget": 100,
+    "dimmerTarget": 0
+  },
+  "include": ["TRADFRI panel"],
+  "exclude": [],
+  "longitude":56.642372,
+  "latitude":16.401150
 }
