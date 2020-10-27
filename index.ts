@@ -15,7 +15,6 @@ const startTransitions = async (client: TradfriClient) => {
   const sunrise = getSunrise(OPTIONS.longitude, OPTIONS.latitude).setSeconds(0,0) / 60000 - midnight
   const sunset = getSunrise(OPTIONS.longitude, OPTIONS.latitude).setSeconds(0,0) / 60000 - midnight;
 
-  console.log(now, sunrise - OPTIONS.sunrise.relativeStartTime * 60)
   await client.observeDevices()
 
   for (const device of Object.values(client.devices)) {
@@ -26,6 +25,7 @@ const startTransitions = async (client: TradfriClient) => {
 
     if (device.lightList) {
       if (now === sunrise - OPTIONS.sunrise.relativeStartTime * 60) {
+        console.log(`Starting sunrise program at ${new Date().toString()}`)
         client.operateLight(
           device,
           { 
@@ -38,6 +38,7 @@ const startTransitions = async (client: TradfriClient) => {
           }
         );
       } else if (now === OPTIONS.wakeUp.startClockHour * 60) {
+        console.log(`Starting wakeup program at ${new Date().toString()}`)
         client.operateLight(
           device,
           {
@@ -50,6 +51,7 @@ const startTransitions = async (client: TradfriClient) => {
           }
         )
       } else if (now === sunset - OPTIONS.sunset.relativeStartTime * 60 && sunset - OPTIONS.sunset.relativeStartTime * 60 < OPTIONS.sleep.startClockHour * 60) {
+        console.log(`Starting sunset program at ${new Date().toString()}`)
         client.operateLight(
           device,
           {
@@ -59,6 +61,7 @@ const startTransitions = async (client: TradfriClient) => {
           }
         )
       } else if (now === OPTIONS.sleep.startClockHour * 60) {
+        console.log(`Starting sleep program at ${new Date().toString()}`)
         client.operateLight(
           device,
           {
@@ -68,6 +71,6 @@ const startTransitions = async (client: TradfriClient) => {
           }
         )
       }
-    }
+    } 
   }
 }
