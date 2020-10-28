@@ -38,7 +38,7 @@ export const getTimes = () => {
     start: Math.round(OPTIONS.sleep.startClockHour * 60),
     duration:
       Math.round(
-        OPTIONS.sleep.completeClockHour - OPTIONS.sleep.completeClockHour
+        OPTIONS.sleep.completeClockHour - OPTIONS.sleep.startClockHour
       ) * 60,
   };
   return { now, sunrise, sunset, wakeup, sleep };
