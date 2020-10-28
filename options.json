@@ -1,5 +1,5 @@
 {
-  "wakeUp": {
+  "wakeup": {
     "startClockHour": 6,
     "completeClockHour": 7,
     "colorTemperatureTarget": 40,
@@ -23,8 +23,8 @@
     "colorTemperatureTarget": 100,
     "dimmerTarget": 0
   },
-  "include": ["TRADFRI panel"],
+  "include": [],
   "exclude": [],
-  "longitude":56.642372,
-  "latitude":16.401150
+  "longitude": 56.642372,
+  "latitude": 16.40115
 }
