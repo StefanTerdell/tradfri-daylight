@@ -1,4 +1,4 @@
-import { getSunrise } from "sunrise-sunset-js";
+import { getSunrise, getSunset } from "sunrise-sunset-js";
 import * as OPTIONS from "./options.json";
 
 /**
@@ -11,17 +11,17 @@ export const getTimes = () => {
     getSunrise(OPTIONS.longitude, OPTIONS.latitude).setSeconds(0, 0) / 60000 -
     midnight;
   const sunrise = {
-    start: Math.round(actualSunrise - OPTIONS.sunrise.relativeStartTime) * 60,
+    start: Math.round(actualSunrise - OPTIONS.sunrise.relativeStartTime * 60),
     duration:
       Math.round(
         OPTIONS.sunrise.relativeCompleteTime - OPTIONS.sunrise.relativeStartTime
       ) * 60,
   };
   const actualSunset =
-    getSunrise(OPTIONS.longitude, OPTIONS.latitude).setSeconds(0, 0) / 60000 -
+    getSunset(OPTIONS.longitude, OPTIONS.latitude).setSeconds(0, 0) / 60000 -
     midnight;
   const sunset = {
-    start: Math.round(actualSunset - OPTIONS.sunset.relativeStartTime) * 60,
+    start: Math.round(actualSunset - OPTIONS.sunset.relativeStartTime * 60),
     duration:
       Math.round(
         OPTIONS.sunset.relativeCompleteTime - OPTIONS.sunset.relativeStartTime
