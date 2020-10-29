@@ -43,3 +43,5 @@ export const getTimes = () => {
   };
   return { now, sunrise, sunset, wakeup, sleep };
 };
+
+console.log("Times", getTimes())
